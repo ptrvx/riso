@@ -3,15 +3,14 @@ import json
 
 conn = http.client.HTTPSConnection("jsonplaceholder.typicode.com")
 payload = json.dumps({
-  "userId": "5",
-  "id": "5",
-  "title": "Naslov",
-  "body": "Tekst"
+  "ime": "Petar",
+  "username": "pvukovic",
+  "ocena": 21
 })
 headers = {
   'Content-Type': 'application/json'
 }
-conn.request("POST", "/posts", payload, headers)
+conn.request("POST", "/users", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
